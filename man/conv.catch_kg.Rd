@@ -10,7 +10,7 @@
 \item{catch_kg}{Catch in kilogram}
 
 \item{to}{decimal order to convert in character such as
-\description{
+\describe{
   \item{"ton"}{ton}
   \item{"dton"}{10 ton}
   \item{"cton"}{100 ton}

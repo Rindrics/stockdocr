@@ -8,6 +8,8 @@ conv(value, ...)
 }
 \arguments{
 \item{value}{Value to be converted}
+
+\item{...}{Arguments to be passed to methods}
 }
 \description{
 Convert decimals

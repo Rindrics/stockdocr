@@ -12,6 +12,10 @@ toggle_paste(x, y, ..., sep = "", concat = TRUE)
 
 \item{y}{The other}
 
+\item{...}{Additional arguments to be concatenated}
+
+\item{sep}{Separate character between two args}
+
 \item{concat}{If FALSE, x will be returned}
 }
 \description{

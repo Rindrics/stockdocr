@@ -10,7 +10,7 @@
 \item{r_106fish}{Number of recruitments in "million fish"}
 
 \item{to}{decimal order to convert in character such as
-\description{
+\describe{
   \item{"mil"}{million fishes}
   \item{"100mil"}{100 million fishes, "oku" in Japanese}
   #' }}

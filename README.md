@@ -1,4 +1,5 @@
-# stockdocr
+ # stockdocr
+[![Travis build status](https://travis-ci.com/akikirinrin/stockdockr.svg?branch=master)](https://travis-ci.com/akikirinrin/stockdockr)
 
 # 機能
 数値を受けとり、業務に適した形の出力を返す関数を提供

@@ -1,0 +1,7 @@
+book_filename: "stockassess"
+new_session: yes # merge after render_book
+delete_merged_file: true
+rmd_files:
+- main.Rmd
+- appendix.Rmd
+after_chapter_script: "replace.R"

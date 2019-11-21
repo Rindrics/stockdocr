@@ -8,6 +8,7 @@ Authors@R:
            email = "first.last@example.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
+Depends: R (>= 2.10)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -16,4 +17,7 @@ Suggests:
     knitr,
     rmarkdown
 RoxygenNote: 6.1.1
-VignetteBuilder: knitr
+VignetteBuilder: rmarkdown
+Imports: 
+    magrittr,
+    ggplot2

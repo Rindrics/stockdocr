@@ -23,7 +23,7 @@ ssb <- function(vpares, year, unit, add_jp = TRUE) {
 harvest_rate <- function(vpares, year) {
   biomass <- handle_vpa(vpares, year, varname = "baa", unit = "ton", add_jp = FALSE)
   catch   <- handle_vpa(vpares, year, varname = "wcaa", unit = "ton", add_jp = FALSE)
-  as.numeric(catch) / as.numeric(biomass) * 100
+  round(as.numeric(catch) / as.numeric(biomass) * 100, 1)
 }
 
 faa <- function(vpares, year) {

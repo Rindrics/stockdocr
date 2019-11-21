@@ -2,11 +2,12 @@
 params:
   year: 2018
 title:  "`r params$year`年度資源評価"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{stockassess}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output:
+  bookdown::pdf_document2:
+   latex_engine: xelatex
+   toc: no
+highlight: "zenburn"
+mainfont: ipaexm.ttf
 ---
 
 ```{r, include = FALSE}
@@ -14,94 +15,39 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+knitr::opts_knit$set(eval.after = "fig.cap")
 ```
 
 ```{r setup, include = FALSE}
 library("stockdocr")
 library("knitr")
+library("ggvis")
 devtools::load_all()
 yr_newest_catch <- params$year - 1
+years <- get_year_from_vpa_result(res_vpa)
 ```
-#	データセット
-本件資源評価に使用したデータセットは以下のとおり
-
-#	生態
-## 分布・回遊
-ゴマサバはマサバに比べて高温（南方）域に分布する（Collette and Nauen 1983、山田ほか 2007、図2-1）。
-東シナ海のゴマサバは魚釣島からクチミノセに亘る海域で1～4月に産卵し、
-その後成長した個体は東シナ海南部海域から九州西岸域に現れ、
-一部は日本海にまで到達する。
-また、薩南海域では1～5月に産卵が行われ、
-春期には幼魚が九州西岸域〜太平洋岸域に出現する。
-春夏には索餌のために北上回遊し、
-秋冬には越冬・産卵のため南下回遊する（辻田・近藤 1957、Tanoue 1966）。
-
-## 年齢・成長
-詳細な成長様式は不明であるが、
-本報告では
-1歳で尾叉長28 cm、
-2歳で32 cm、
-3歳で36 cm、
-4歳で38 cm、
-5歳で39 cmまで成長するとした（図2-2）。
-寿命は6歳程度と考えられる。 
-
-## 成熟・産卵
-産卵は1～4月には東シナ海中・南部から九州南部沿岸、
-5月には東シナ海中部から九州西岸で行われる（Yukami et al., 2009、Sassa and Tsukamoto 2010）。
-正確な成熟年齢は不明であるが、
-本報告ではマサバでの研究結果（Shiraishi et al., 2008）からの類推と生物測定結果から、
-1歳で60%、
-2歳で85%、
-3歳以上で100%の個体が成熟すると仮定した（図2-3）。
-
-## 被捕食関係
-仔魚期には橈脚類や尾虫類、
-幼稚魚期にはイワシ類などの仔稚魚、
-成魚期には浮遊性甲殻類や小型魚類を主に捕食する（辻田・近藤 1957、Sassa et al., 2008）。
-幼稚魚は魚食性魚類に捕食されると考えられる（Tanoue 1966）。
-
 # 資源の状況
-## 資源量と漁獲割合の推移
-コホート解析により求めた資源量は、
-1992～2014年には、100千～200千トン程度の範囲で比較的安定していたが、
-2015年以降に継続的に増加し、
-`r yr_newest_catch`年には
-`r b(res_vpa, year = yr_newest_catch, unit = "kton")`トンまで急増した（図4-3、表4-1）。 漁獲割合は2000年代までは40％前後の値で推移していたが、
-2010年代に入ってから低下し、
-`r yr_newest_catch`年には
-`r harvest_rate(res_vpa, year = yr_newest_catch)`%となった。 加入量（資源計算の0歳魚資源尾数）は、
-1992年以降において概ね2～4億尾前後で変動してきたが、
-2015年以降は連続的に増加し、
-`r yr_newest_catch`年には`r r(res_vpa, year = yr_newest_catch)`尾となった（図4-4、表4-1）。
-親魚量（資源計算の成熟魚資源量）の変動履歴は資源量と類似しており、
-2013年までは30千～80千トンの間で変動してきたが、 その後連続的に増加し、
-`r yr_newest_catch`年には
-`r ssb(res_vpa, year = yr_newest_catch, unit = "kton")`トンの過去最高値となった（図4-4、表4-1）。
-コホート解析に用いた自然死亡係数（M）に対する感度解析として、
-Mを仮定値（0.4）に対して0.3および0.5として資源評価を行った。
-2018年の資源量、親魚量、加入量はMの上昇とともに多くなり、
-Mが0.1変化すると、各推定値に対して5%前後の影響があった（図4-5）。
-漁獲係数F（各年齢のFの単純平均）はおよそ0.5～1の範囲で上下を繰り返している（図4-6）。
-2012年以降、Fは継続的に低下し、
-`r yr_newest_catch`年にはやや上昇して
-`r mean(faa(res_vpa, year = yr_newest_catch))`となった。
-```{r, echo = FALSE}
-rbind(c(paste0("SB", yr_newest_catch),
-        ssb(res_vpa, year = yr_newest_catch, unit = "kton")),
-      c(paste0("F", yr_newest_catch),
-        paste(faa(res_vpa, year = yr_newest_catch), collapse = ", ")),
-      c(paste0("U", yr_newest_catch),
-        harvest_rate(res_vpa, year = yr_newest_catch))) %>%
-  as.data.frame() %>%
-  kable()
+資源量は`r yr_newest_catch`年に
+`r b(res_vpa, year = yr_newest_catch, unit = "kton")`トンまで急増した
+
+漁獲率は`r yr_newest_catch`年には
+`r harvest_rate(res_vpa, year = yr_newest_catch)`%となった
+
+加入量は
+`r yr_newest_catch`年には`r r(res_vpa, year = yr_newest_catch)`尾となった
+
+親魚量は
+`r yr_newest_catch`年に
+`r ssb(res_vpa, year = yr_newest_catch, unit = "kton")`トンとなった
+
+```{r great, echo = FALSE}
+table_foo(res_vpa, yr_newest_catch, caption = paste0("My great table in ", yr_newest_catch))
 ```
-```{r test_plot}
-dat <- res_vpa$ssb
-year <- as.numeric(names(dat))
-plot(year, colSums(dat))
+表\@ref(tab:great)を見てください
+
+```{r catch, fig.cap = paste0("Annual variation in Foo catch during", min(years), "--",  yr_newest_catch), fig.width = 5, echo = FALSE}
+plot_vpa(res_vpa, "ssb") +
+  ggplot2::ylab("great y axis")
 ```
 
-### 加入量当たり漁獲量（YPR）、加入量あたり親魚量（SPR）、現状の漁獲圧
-選択率の影響を加味して漁獲圧を比較するため\ref{fig:test_plot}、各年のF値を%SPR（年ごとに漁獲が無かったと仮定した場合のSPRに対する、漁獲があった場合のSPRの割合）に換算した値を図4-7に示す。%SPRは漁獲圧が低いほど大きい値をとる。％SPRは増減を繰り返しながら推移し、2000年代後半からは増加傾向にある。
-近年5年間（2014～2018年）の選択率における漁獲圧に平均漁獲圧に対する%SPRの関係を図4-8に示す。現状の漁獲圧（F2016-2018）は、Fmedや、F30%SPRよりも低く、F0.1と近似している。図4-8には、平成31年4月に開催された「管理基準値等に関する研究機関会議」においてMSYを算出した際の条件下での平均漁獲圧に対する%SPRの関係も示した。「管理基準値等に関する研究機関会議」と同条件下において、F2018および現状の漁獲圧（F2016-2018）はFmsyより低い。
+図\@ref(fig:catch)を見てください

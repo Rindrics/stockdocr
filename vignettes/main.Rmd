@@ -1,9 +1,10 @@
 ---
 params:
   year: 2018
-  mode: "draft"
+  mode: "final"
 title:  "`r params$year`年度資源評価"
 date: "`r Sys.Date()`"
+knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:

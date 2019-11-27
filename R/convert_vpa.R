@@ -1,7 +1,7 @@
 handle_vpa <- function(vpares, varname, year, unit, add_jp) {
   out_kg <- vpares[[varname]][as.character(year)] %>%
     colSums() %>%
-    "*"(1000)
+    unlist() * 1000
   class(out_kg) <- "catch_kg"
   conv(out_kg, to = unit, add_jpdigit = add_jp)
 }

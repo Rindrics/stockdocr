@@ -1,0 +1,25 @@
+---
+params:
+  year: 2018
+  mode: "draft"
+title:
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook:
+    split_by: none
+    css: appendix.css
+numbersections: false
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_knit$set(eval.after = "fig.cap")
+```
+# 補足資料 {#cohort}
+
+# 補足資料 {#table}

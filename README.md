@@ -1,24 +1,13 @@
  # stockdocr
 [![Travis build status](https://travis-ci.com/akikirinrin/stockdocr.svg?branch=master)](https://travis-ci.com/akikirinrin/stockdocr)
 
-# 機能
-数値を受けとり、業務に適した形の出力を返す関数を提供
+## 何ができるようになるか
 
-# 開発者
-- 業務をしながら、同じことを何度も書いていることに気づいた担当者
-- 細かい文言の修正に煩わしさを感じる担当者
-- 担当者の文章の体裁を統一したいリーダー
-
-# ユーザー
-- 資源評価などの業務において、数値入りの報告書を執筆する水研職員
-
-# dir構成と提供する価値
-- R: 数値を受け取り、テキストを返す関数
-- data: なし。ここを曖昧にすると方針がブレてくるので注意
-- vignettes: 全機能リスト
-
-# どんな作業が形式知化されるか
-- 報告書の細かい用語
-- 単位などの書き方
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69839832-8d1e6900-129c-11ea-90e3-a8cac3a9d871.png"><img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69839872-b50dcc80-129c-11ea-9b77-2d1387f26b8f.png">
 
 
+
+
+
+- [ユーザー向けページ](https://github.com/akikirinrin/stockdocr/wiki/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E5%90%91%E3%81%91%E3%83%9A%E3%83%BC%E3%82%B8)
+- [開発者向けページ](https://github.com/akikirinrin/stockdocr/wiki/%E9%96%8B%E7%99%BA%E8%80%85%E5%90%91%E3%81%91%E3%83%9A%E3%83%BC%E3%82%B8)

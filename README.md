@@ -10,14 +10,24 @@
 #### knit後
 <img width="581" alt="image" src="https://user-images.githubusercontent.com/14845847/69840440-e091b680-129e-11ea-8ba0-03bb31b72d12.png">
 
+### draftモードを利用した校閲
+`draft = TRUE/FALSE`で draftモードをトグル
 
+<table border="0" cellspacing="0" cellpadding="30">
+ <tr>
+  <td><img width="310" alt="image" src="https://user-images.githubusercontent.com/14845847/69840625-8b09d980-129f-11ea-92a4-08c976d0e8a9.png">
+  </td>
+  <td><img width="302" alt="image" src="https://user-images.githubusercontent.com/14845847/69840990-d4a6f400-12a0-11ea-898e-62686e9c6403.png">
+  </td>
+ </tr>
+</table>
 
 <table border="1" cellspacing="0" cellpadding="1">
  <tr>
-  <td>
-    <img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69839832-8d1e6900-129c-11ea-90e3-a8cac3a9d871.png">
+  <td><img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69840867-6bbf7c00-12a0-11ea-9d49-aea71b35b83d.png">
   </td>
-  <td><img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69840039-72002900-129d-11ea-932c-cc5133de08a0.png">
+  <td>
+   <img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69840963-b7722580-12a0-11ea-94e2-0d148850abca.png">
 </td>
   </tr>
 </table>

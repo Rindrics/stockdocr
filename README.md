@@ -53,6 +53,6 @@ Rmarkdownファイル中で、インライン記法(バッククォート)を用
 ```
 `r ssb(res_vpa, year = yr_newest_catch, unit = "kton", draft = params$draft)`トンとなった
 ```
+報告書サンプルは[こちら](https://github.com/akikirinrin/stockdocr/blob/master/vignettes/main.Rmd)
 
-- [ユーザー向けページ](https://github.com/akikirinrin/stockdocr/wiki/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E5%90%91%E3%81%91%E3%83%9A%E3%83%BC%E3%82%B8)
 - [開発者向けページ](https://github.com/akikirinrin/stockdocr/wiki/%E9%96%8B%E7%99%BA%E8%80%85%E5%90%91%E3%81%91%E3%83%9A%E3%83%BC%E3%82%B8)

@@ -8,7 +8,7 @@
 <img width="970" alt="image" src="https://user-images.githubusercontent.com/14845847/69840348-93154980-129e-11ea-835b-42ae3327c8b8.png">
 
 #### knit後
-<img width="621" alt="image" src="https://user-images.githubusercontent.com/14845847/69840392-ba6c1680-129e-11ea-94c7-8cce4be2a50d.png">
+<img width="581" alt="image" src="https://user-images.githubusercontent.com/14845847/69840440-e091b680-129e-11ea-8ba0-03bb31b72d12.png">
 
 
 

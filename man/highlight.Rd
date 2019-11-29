@@ -4,7 +4,7 @@
 \alias{highlight}
 \title{Highlight string for review}
 \usage{
-highlight(string, draft, color = "skyblue")
+highlight(string, draft = TRUE, color = "skyblue")
 }
 \arguments{
 \item{string}{String to be highlighted}

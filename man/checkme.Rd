@@ -4,7 +4,7 @@
 \alias{checkme}
 \title{Highlight hand-written phrase for review}
 \usage{
-checkme(string, draft)
+checkme(string, draft = TRUE)
 }
 \arguments{
 \item{string}{String to be highlighted}

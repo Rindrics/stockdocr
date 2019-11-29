@@ -3,8 +3,23 @@
 
 ## 何ができるようになるか
 
+### 数値展開を利用した報告書執筆
+#### mdテキスト
+<img width="970" alt="image" src="https://user-images.githubusercontent.com/14845847/69840348-93154980-129e-11ea-835b-42ae3327c8b8.png">
+
+#### knit後
+<img width="621" alt="image" src="https://user-images.githubusercontent.com/14845847/69840392-ba6c1680-129e-11ea-94c7-8cce4be2a50d.png">
+
+
+
 <table border="1" cellspacing="0" cellpadding="1">
-<img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69839832-8d1e6900-129c-11ea-90e3-a8cac3a9d871.png"><img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69839872-b50dcc80-129c-11ea-9b77-2d1387f26b8f.png">
+ <tr>
+  <td>
+    <img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69839832-8d1e6900-129c-11ea-90e3-a8cac3a9d871.png">
+  </td>
+  <td><img width="400" alt="image" src="https://user-images.githubusercontent.com/14845847/69840039-72002900-129d-11ea-932c-cc5133de08a0.png">
+</td>
+  </tr>
 </table>
 
 ## インストール

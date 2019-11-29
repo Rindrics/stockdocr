@@ -1,34 +1,87 @@
-handle_vpa <- function(vpares, varname, year, unit, add_jp) {
-  out_kg <- vpares[[varname]][as.character(year)] %>%
-    colSums() %>%
-    unlist() * 1000
-  class(out_kg) <- "catch_kg"
-  conv(out_kg, to = unit, add_jpdigit = add_jp)
+#' Pull weight value from vpa result
+#'
+#' @inheritParam frasyr::convert_vpa_tibble
+#' @param yr Year to filter output
+#' @param varname Name of variable from \code($stat) of
+#' frasyr::convert_vpa_tibble output
+pull_value_from_vpa_result <- function(vpares, yr, varname) {
+  df <- frasyr::convert_vpa_tibble(vpares)
+  assertthat::assert_that(
+    all(colnames(df) == c("value", "year", "type", "sim", "stat", "age")),
+    msg = "Colnames of output from 'frasyr::convert_vpa_tibble' changed.")
+  out <- df %>%
+    dplyr::filter(stat == varname,
+                  year == yr) %>%
+    dplyr::pull(value)
+  assertthat::assert_that(
+    length(out) > 0,
+    msg = paste0("'", varname, "' is not found in output of frasyr::convert_vpa_tibble"))
+  return(out)
 }
 
-b <- function(vpares, year, unit, add_jp = TRUE) {
-  handle_vpa(vpares, year, varname = "baa", unit = unit, add_jp = add_jp)
+#' Return biomass of given year
+#'
+#' @inheritParams conv.catch_kg
+#' @param year Year of the value you want
+#' @param draft If TRUE, value will be returned wrapped by HTML tag
+#' for highlight in document review
+#' @export
+b <- function(vpares, year, unit = "kton", add_jpdigit = TRUE, draft = FALSE) {
+  vpares %>%
+    pull_value_from_vpa_result(year, varname = "biomass") %>%
+    ton_to_kg() %>%
+    set_class(class = "catch_kg") %>%
+    conv(to = unit, add_jpdigit = add_jpdigit) %>%
+    highlight(draft = draft)
 }
 
-r <- function(vpares, year, unit = "100mil", add_jp = TRUE) {
-  row_age0  <- 1
-  r_106fish <- vpares[["naa"]][as.character(year)][row_age0, ]
-  class(r_106fish) <- "recruit_106fish"
-  conv(r_106fish, to = unit, add_jpdigit = add_jp)
-}
-ssb <- function(vpares, year, unit, add_jp = TRUE) {
-  handle_vpa(vpares, year, varname = "ssb", unit = unit, add_jp = add_jp)
-}
-
-harvest_rate <- function(vpares, year) {
-  biomass <- handle_vpa(vpares, year, varname = "baa", unit = "ton", add_jp = FALSE)
-  catch   <- handle_vpa(vpares, year, varname = "wcaa", unit = "ton", add_jp = FALSE)
-  round(as.numeric(catch) / as.numeric(biomass) * 100, 1)
+#' Return recruitment of given year
+#'
+#' @inheritParams conv.recruit_106fish
+#' @inheritParams b
+#' @export
+r <- function(vpares, year, unit = "100mil", add_jpdigit = TRUE, draft = FALSE) {
+  vpares %>%
+    pull_value_from_vpa_result(year, varname = "Recruitment") %>%
+    set_class(class = "recruit_106fish") %>%
+    conv(to = unit, add_jpdigit = add_jpdigit) %>%
+    highlight(draft = draft)
 }
 
-faa <- function(vpares, year) {
+#' Return SSB of given year
+#'
+#' @inheritParams b
+#' @export
+ssb <- function(vpares, year, unit = "kton", add_jpdigit = TRUE, draft = FALSE) {
+  vpares %>%
+    pull_value_from_vpa_result(year, varname = "SSB") %>%
+    ton_to_kg() %>%
+    set_class(class = "catch_kg") %>%
+    conv(to = unit, add_jpdigit = add_jpdigit) %>%
+    highlight(draft = draft)
+}
+
+#' Return harvest rate of given year
+#'
+#' @inheritParams conv.recruit_106fish
+#' @inheritParams highlight
+#' @export
+harvest_rate <- function(vpares, year, draft = FALSE) {
+  biomass <- pull_value_from_vpa_result(vpares, year, varname = "biomass")
+  catch   <- pull_value_from_vpa_result(vpares, year, varname = "catch")
+
+  round(as.numeric(catch) / as.numeric(biomass) * 100, 1) %>%
+    highlight(draft = draft)
+}
+
+#' Return fishing mortality of given year
+#'
+#' @inheritParams b
+#' @export
+faa <- function(vpares, year, draft = FALSE) {
   vpares[["faa"]][as.character(year)] %>%
     unlist() %>%
     unname() %>%
-    round(2)
+    round(2) %>%
+    highlight(draft = draft)
 }

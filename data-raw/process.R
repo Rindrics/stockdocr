@@ -8,4 +8,4 @@ dat <- frasyr::data.handler(caa = caa, waa = waa, maa = maa, M = 0.5)
 res_vpa <- frasyr::vpa(dat, fc.year = 2015:2017, tf.year = 2015:2016,
                        term.F = "max", stat.tf = "mean", Pope = TRUE,
                        tune = FALSE, p.init = 0.5)
-usethis::use_data(res_vpa, internal = TRUE, overwrite = TRUE)
+usethis::use_data(res_vpa, overwrite = TRUE)

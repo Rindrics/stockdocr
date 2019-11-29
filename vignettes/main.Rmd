@@ -36,27 +36,27 @@ years <- get_year_from_vpa_result(res_vpa)
 ## 資源量と漁獲割合
 
 
-資源量は`r yr_newest_catch`年に
+資源量は`r highlight(yr_newest_catch, draft = params$draft)`年に
 `r b(res_vpa, year = yr_newest_catch, unit = "kton", draft = params$draft)`トンまで`r checkme("急増した", draft = params$draft)`
-漁獲率は`r yr_newest_catch`年には
+漁獲率は`r highlight(yr_newest_catch, draft = params$draft)`年には
 `r harvest_rate(res_vpa, year = yr_newest_catch, draft = params$draft)`%となった
 
 加入量は
-`r yr_newest_catch`年には`r r(res_vpa, year = yr_newest_catch, draft = params$draft)`尾となった
+`r highlight(yr_newest_catch, draft = params$draft)`年には`r r(res_vpa, year = yr_newest_catch, draft = params$draft)`尾となった
 
 親魚量は
-`r yr_newest_catch`年に
+`r highlight(yr_newest_catch, draft = params$draft)`年に
 `r ssb(res_vpa, year = yr_newest_catch, unit = "kton", draft = params$draft)`トンとなった
 
 ```{r great, echo = FALSE}
 sample_table(res_vpa, yr_newest_catch,
-             caption = paste0("My great table in ", yr_newest_catch),
+             caption = paste0("My great table in ", highlight(yr_newest_catch, draft = params$draft)),
              draft = params$draft)
 ```
 
 表\@ref(tab:great)を見てちょうだい
 
-```{r catch, fig.cap = paste0("Annual variation in Foo catch during", min(years), "--",  yr_newest_catch), fig.width = 5, echo = FALSE}
+```{r catch, fig.cap = paste0("Annual variation in Foo catch during", min(years), "--",  highlight(yr_newest_catch, draft = params$draft)), fig.width = 5, echo = FALSE}
 plot_vpa(res_vpa, "ssb") +
   ylab("great y axis")
 ```

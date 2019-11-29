@@ -37,8 +37,18 @@ R起動後
 ```
 devtools::install_github("akikirinrin/stockdocr")
 ```
-## 使い方
 
+## 使い方
+### インタラクティブな動作
+[frasyrパッケージのvpa関数](https://github.com/ichimomo/frasyr/blob/master/R/rvpa.r#L493-L494)の出力（ここでは`res_vpa`）と年を`ssb()`関数に与えてみる
+
+<img width="415" alt="image" src="https://user-images.githubusercontent.com/14845847/69841359-2f8d1b00-12a2-11ea-817b-87256aa95e3d.png">
+
+### 報告書への活用
+Rmarkdownファイル中で、インライン記法(バッククォート)を用いて文章とともに記述
+```
+`r ssb(res_vpa, year = yr_newest_catch, unit = "kton", draft = params$draft)`トンとなった
+```
 
 - [ユーザー向けページ](https://github.com/akikirinrin/stockdocr/wiki/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E5%90%91%E3%81%91%E3%83%9A%E3%83%BC%E3%82%B8)
 - [開発者向けページ](https://github.com/akikirinrin/stockdocr/wiki/%E9%96%8B%E7%99%BA%E8%80%85%E5%90%91%E3%81%91%E3%83%9A%E3%83%BC%E3%82%B8)

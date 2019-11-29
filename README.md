@@ -4,7 +4,7 @@
 ## 何ができるようになるか
 
 ### 数値展開を利用した報告書執筆
-#### mdテキスト
+#### Rmarkdown中のテキスト
 <img width="970" alt="image" src="https://user-images.githubusercontent.com/14845847/69840348-93154980-129e-11ea-835b-42ae3327c8b8.png">
 
 #### knit後

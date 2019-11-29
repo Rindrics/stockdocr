@@ -29,8 +29,8 @@ conv <- function(value, ...) {
 #'   \item{"ton"}{ton}
 #'   \item{"dton"}{10 ton}
 #'   \item{"cton"}{100 ton}
-#'   \item{"kon"}{kilo ton}
-#'   \item{"10on"}{10 kilo ton}
+#'   \item{"kton"}{kilo ton}
+#'   \item{"10kton"}{10 kilo ton}
 #' }
 #' @param add_jpdigit If TRUE, Japanese kanji digit mark will be added
 conv.catch_kg <- function(catch_kg, to, add_jpdigit = TRUE) {
